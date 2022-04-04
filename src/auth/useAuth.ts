@@ -1,20 +1,17 @@
 import { useState } from "react";
+import axios from "axios";
+import { BASE_URL } from "../config";
 import { LoginCredentials, LoginResponse, User } from "../types";
 import { useToken } from "./useToken";
 
-const EXAMPLE_USER: User = {
-  userID: "My User ID",
-  schoolName: "My School Name",
-  schoolID: "My School ID",
-  userType: "superAdmin",
-};
-
 const reqUser = async (token: string): Promise<User> => {
-  return EXAMPLE_USER;
+  const res = await axios.get("me", { baseURL: BASE_URL });
+  return res.data;
 };
 
 const reqLogIn = async (cred: LoginCredentials): Promise<LoginResponse> => {
-  return { user: EXAMPLE_USER, token: "Example token" };
+  const res = await axios.post("login", cred, { baseURL: BASE_URL });
+  return res.data;
 };
 
 export const useAuth = () => {

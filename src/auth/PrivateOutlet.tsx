@@ -12,7 +12,6 @@ enum Status {
 
 const PrivateOutlet = () => {
   const [status, setStatus] = useState<Status>(Status.Loading);
-  const [user, setUser] = useState<User | null>(null);
   const { fetchUser } = useAuth();
 
   useEffect(() => {
@@ -23,7 +22,6 @@ const PrivateOutlet = () => {
           setStatus(Status.Invalid);
           return;
         }
-        setUser(fetched);
         setStatus(Status.Valid);
       })();
     }, 1000);
