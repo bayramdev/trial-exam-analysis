@@ -15,17 +15,14 @@ const PrivateOutlet = () => {
   const { fetchUser } = useAuth();
 
   useEffect(() => {
-    const timeOut = setTimeout(() => {
-      (async () => {
-        const fetched = await fetchUser();
-        if (!fetched) {
-          setStatus(Status.Invalid);
-          return;
-        }
-        setStatus(Status.Valid);
-      })();
-    }, 1000);
-    return () => clearTimeout(timeOut);
+    (async () => {
+      const fetched = await fetchUser();
+      if (!fetched) {
+        setStatus(Status.Invalid);
+        return;
+      }
+      setStatus(Status.Valid);
+    })();
   });
 
   if (status === Status.Loading) {
