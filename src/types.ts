@@ -6,8 +6,8 @@ export interface User {
 }
 
 export interface LoginCredentials {
-  username: string;
-  password: string;
+  userID: string;
+  userPassword: string;
 }
 
 export interface LoginResponse {
