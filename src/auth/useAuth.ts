@@ -5,7 +5,10 @@ import { LoginCredentials, LoginResponse, User } from "../types";
 import { useToken } from "./useToken";
 
 const reqUser = async (token: string): Promise<User> => {
-  const res = await axios.get("me", { baseURL: BASE_URL });
+  const res = await axios.get("me", {
+    baseURL: BASE_URL,
+    headers: { Authorization: `Bearer ${token}` },
+  });
   return res.data;
 };
 
