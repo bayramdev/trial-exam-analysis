@@ -1,4 +1,4 @@
-import { FormEventHandler, ChangeEventHandler, useState } from "react";
+import { FormEventHandler, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../auth/useAuth";
 import { LoginCredentials } from "../types";
@@ -21,7 +21,7 @@ const LoginPage = () => {
   };
 
   return cachedUser ? (
-    <Navigate to="" />
+    <Navigate to="/" />
   ) : (
     <div className="h-screen flex bg-gray-bg1">
       <div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-16">
