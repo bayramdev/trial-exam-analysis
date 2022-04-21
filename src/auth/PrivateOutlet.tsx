@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Outlet, Navigate } from "react-router-dom";
 import LoadingPage from "../pages/LoadingPage";
-import { User } from "../types";
 import { useAuth } from "./useAuth";
 
 enum Status {
